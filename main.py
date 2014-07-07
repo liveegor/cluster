@@ -2,12 +2,15 @@
 # -*- coding: utf-8 -*-
 
 import sys
+import math
+
+import cPickle as pickle
+from hcluster import pdist, linkage, dendrogram
+import matplotlib.pyplot as plt
+
 from form import *
 from numpy import *
-import matplotlib.pyplot as plt
-from hcluster import pdist, linkage, dendrogram 
-import cPickle as pickle
-import math
+
 
 # ------------------------------------------------
 
