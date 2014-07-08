@@ -21,6 +21,11 @@
        <property name="toolTip">
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Точки&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
+       <row>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </row>
        <column>
         <property name="text">
          <string>x</string>

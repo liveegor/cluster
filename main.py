@@ -7,7 +7,6 @@ import math
 import cPickle as pickle
 from hcluster import pdist, linkage, dendrogram
 import matplotlib.pyplot as plt
-from numpy import *
 
 from form import *
 
@@ -44,27 +43,34 @@ class Form (QtGui.QWidget, Ui_Form):
         Remove selected row from points table.
         """
 
+        # It can't be lesser then one row in table.
+        if self.pointsTableWidget.rowCount() == 1:
+            return
+
         curRow = self.pointsTableWidget.currentRow()
         self.pointsTableWidget.removeRow(curRow)
 
-    # ------------------------------------------------
 
-    # making calculations
     def count(self):
+        """
+        Reading points from table and calling needed method
+        """
+
+        # This is reading
         self.rowsN = self.pointsTableWidget.rowCount()
         self.ptsArr = [[0.0, 0.0] for i in range(self.rowsN)]
         for i in range(self.rowsN):
             for j in range(2):
                 item = self.pointsTableWidget.item(i,j)
                 if not item :
-                    title = QtGui.QApplication.translate("self", "Ошибка", None, QtGui.QApplication.UnicodeUTF8)
-                    text  = QtGui.QApplication.translate("self", "Заполните все поля или удалите ненужные", None, QtGui.QApplication.UnicodeUTF8)
+                    title = u"Ошибка"
+                    text  = u"Заполните все поля или удалите ненужные"
                     QtGui.QMessageBox.about(self, title, text)
                     return
                 self.ptsArr[i][j] = self.pointsTableWidget.item(i,j).text().toDouble()[0]
-
         self.clasters = []
 
+        # And This is calling
         options = { 0 : self.mSerial,
                     1 : self.mKing,
                     2 : self.mKMiddle,

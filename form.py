@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'untitled.ui'
+# Form implementation generated from reading ui file 'form.ui'
 #
-# Created: Mon Jul  7 20:57:33 2014
+# Created: Tue Jul  8 13:57:57 2014
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -25,7 +25,9 @@ class Ui_Form(object):
         self.pointsTableWidget = QtGui.QTableWidget(Form)
         self.pointsTableWidget.setObjectName(_fromUtf8("pointsTableWidget"))
         self.pointsTableWidget.setColumnCount(2)
-        self.pointsTableWidget.setRowCount(0)
+        self.pointsTableWidget.setRowCount(1)
+        item = QtGui.QTableWidgetItem()
+        self.pointsTableWidget.setVerticalHeaderItem(0, item)
         item = QtGui.QTableWidgetItem()
         self.pointsTableWidget.setHorizontalHeaderItem(0, item)
         item = QtGui.QTableWidgetItem()
@@ -120,6 +122,8 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QtGui.QApplication.translate("Form", "Кластерный анализ", None, QtGui.QApplication.UnicodeUTF8))
         self.pointsTableWidget.setToolTip(QtGui.QApplication.translate("Form", "<html><head/><body><p>Точки</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        item = self.pointsTableWidget.verticalHeaderItem(0)
+        item.setText(QtGui.QApplication.translate("Form", "1", None, QtGui.QApplication.UnicodeUTF8))
         item = self.pointsTableWidget.horizontalHeaderItem(0)
         item.setText(QtGui.QApplication.translate("Form", "x", None, QtGui.QApplication.UnicodeUTF8))
         item = self.pointsTableWidget.horizontalHeaderItem(1)
