@@ -7,24 +7,18 @@ import math
 import cPickle as pickle
 from hcluster import pdist, linkage, dendrogram
 import matplotlib.pyplot as plt
-
-from form import *
 from numpy import *
 
+from form import *
 
-# ------------------------------------------------
 
-# class of main form
+
 class Form (QtGui.QWidget, Ui_Form):
 
-    # variables
     rowsN    = 0
     ptsArr   = []
     clasters = []
-    
-    # ------------------------------------------------    
 
-    # default constructor
     def __init__ (self):
         QtGui.QWidget.__init__(self)
         Ui_Form.setupUi(self, self)
@@ -35,17 +29,21 @@ class Form (QtGui.QWidget, Ui_Form):
         self.savePushButton.clicked.connect(self.save)
         self.loadPushButton.clicked.connect(self.load)
 
-    # ------------------------------------------------
 
-    # adds a row in the end of table
     def insertRow(self):
+        """
+        Inserts row into points table.
+        """
+
         size = self.pointsTableWidget.rowCount()
         self.pointsTableWidget.insertRow(size)
 
-    # ------------------------------------------------
 
-    # remove current row
     def deleteRow(self):
+        """
+        Remove selected row from points table.
+        """
+
         curRow = self.pointsTableWidget.currentRow()
         self.pointsTableWidget.removeRow(curRow)
 
@@ -312,7 +310,7 @@ class Form (QtGui.QWidget, Ui_Form):
         newCentre = [0.0, 0.0]
         circuitsCentres = []
 
-        while freePoints != []:
+        while freePoints:
 
             changed = True
             self.clasters.append([])
