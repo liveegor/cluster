@@ -96,7 +96,7 @@ class Form (QtGui.QWidget, Ui_Form):
         Subroutine for King Method clusterization.
         """
 
-        label = QtGui.QApplication.translate("self", "Введите пороговое расстояние: ", None, QtGui.QApplication.UnicodeUTF8)
+        label = u"Введите пороговое расстояние: "
         limit = QtGui.QInputDialog.getDouble(self, 'Limit', label)
         if not limit[1]:
             return
@@ -230,7 +230,7 @@ class Form (QtGui.QWidget, Ui_Form):
         Subroutine for K-Middle method clusterization.
         """
 
-        label = QtGui.QApplication.translate("self", "Введите число кластеров: ", None, QtGui.QApplication.UnicodeUTF8)
+        label = u"Введите число кластеров: "
         clastNumb = QtGui.QInputDialog.getInt(self, 'Clasters', label)
         if not clastNumb[1]:
             return
@@ -239,8 +239,8 @@ class Form (QtGui.QWidget, Ui_Form):
             return
 
         if (clastNumb > self.rowsN):
-            title = QtGui.QApplication.translate("self", "Ошибка", None, QtGui.QApplication.UnicodeUTF8)
-            text  = QtGui.QApplication.translate("self", "Количество кластеров больше количества точек!", None, QtGui.QApplication.UnicodeUTF8)
+            title = u"Ошибка"
+            text  = u"Количество кластеров больше количества точек!"
             QtGui.QMessageBox.about(self, title, text)
             return
 
@@ -250,7 +250,7 @@ class Form (QtGui.QWidget, Ui_Form):
 
         # user enter init. centres
         for i in range(clastNumb):
-            label = QtGui.QApplication.translate("self", "Введите центр кластера № %d:" % (i), None, QtGui.QApplication.UnicodeUTF8)
+            label = u"Введите центр кластера № {}:".format(i)
             index = QtGui.QInputDialog.getInt(self, 'Point', label)
             if not index[1]:
                 return
@@ -306,7 +306,7 @@ class Form (QtGui.QWidget, Ui_Form):
         Subroutine for Trout method clusterization.
         """
 
-        label = QtGui.QApplication.translate("self", "Введите радиус:", None, QtGui.QApplication.UnicodeUTF8)
+        label = u"Введите радиус:"
         radius = QtGui.QInputDialog.getDouble(self, 'Radius', label)
         if not radius[1]:
             return
@@ -367,15 +367,15 @@ class Form (QtGui.QWidget, Ui_Form):
         Subroutine for Crab method clusterization.
         """
 
-        label = QtGui.QApplication.translate("self", "Введите число кластеров: ", None, QtGui.QApplication.UnicodeUTF8)
+        label = u"Введите число кластеров: "
         clastNumb = QtGui.QInputDialog.getInt(self, 'Clasters', label)
         if not clastNumb[1]:
             return
         clastNumb = clastNumb[0]
 
         if (clastNumb > self.rowsN):
-            title = QtGui.QApplication.translate("self", "Ошибка", None, QtGui.QApplication.UnicodeUTF8)
-            text  = QtGui.QApplication.translate("self", "Количество кластеров больше количества точек!", None, QtGui.QApplication.UnicodeUTF8)
+            title = u"Ошибка"
+            text  = u"Количество кластеров больше количества точек!"
             QtGui.QMessageBox.about(self, title, text)
             return
 
@@ -468,8 +468,8 @@ class Form (QtGui.QWidget, Ui_Form):
             for j in range(2):
                 item = self.pointsTableWidget.item(i,j)
                 if not item :
-                    title = QtGui.QApplication.translate("self", "Ошибка", None, QtGui.QApplication.UnicodeUTF8)
-                    text  = QtGui.QApplication.translate("self", "Заполните все поля или удалите ненужные", None, QtGui.QApplication.UnicodeUTF8)
+                    title = u"Ошибка"
+                    text  = u"Заполните все поля или удалите ненужные"
                     QtGui.QMessageBox.about(self, title, text)
                     return
                 self.ptsArr[i][j] = self.pointsTableWidget.item(i,j).text().toDouble()[0]
