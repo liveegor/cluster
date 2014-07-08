@@ -80,20 +80,21 @@ class Form (QtGui.QWidget, Ui_Form):
         options[case]()
 
 
-    # ------------------------------------------------
-
-    # serial clasterisation
     def mSerial (self):
+        """
+        Subroutine for Serial clusterization.
+        """
 
         y = pdist(self.ptsArr)
         z = linkage(y)
         dendrogram(z)
         plt.show()
 
-    # ------------------------------------------------
 
-    # King
     def mKing (self):
+        """
+        Subroutine for King Method clusterization.
+        """
 
         label = QtGui.QApplication.translate("self", "Введите пороговое расстояние: ", None, QtGui.QApplication.UnicodeUTF8)
         limit = QtGui.QInputDialog.getDouble(self, 'Limit', label)
@@ -223,10 +224,11 @@ class Form (QtGui.QWidget, Ui_Form):
 
         self.drawClasters()
 
-    # ------------------------------------------------
 
-    # k-middle
     def mKMiddle (self):
+        """
+        Subroutine for K-Middle method clusterization.
+        """
 
         label = QtGui.QApplication.translate("self", "Введите число кластеров: ", None, QtGui.QApplication.UnicodeUTF8)
         clastNumb = QtGui.QInputDialog.getInt(self, 'Clasters', label)
@@ -298,10 +300,11 @@ class Form (QtGui.QWidget, Ui_Form):
 
         self.drawClasters()
 
-    # ------------------------------------------------
 
-    # trout (Форель)
     def mTrout(self):
+        """
+        Subroutine for Trout method clusterization.
+        """
 
         label = QtGui.QApplication.translate("self", "Введите радиус:", None, QtGui.QApplication.UnicodeUTF8)
         radius = QtGui.QInputDialog.getDouble(self, 'Radius', label)
@@ -358,10 +361,11 @@ class Form (QtGui.QWidget, Ui_Form):
 
         self.drawClasters()
 
-    # ------------------------------------------------
 
-    # crab
     def mCrab(self):
+        """
+        Subroutine for Crab method clusterization.
+        """
 
         label = QtGui.QApplication.translate("self", "Введите число кластеров: ", None, QtGui.QApplication.UnicodeUTF8)
         clastNumb = QtGui.QInputDialog.getInt(self, 'Clasters', label)
@@ -424,7 +428,6 @@ class Form (QtGui.QWidget, Ui_Form):
             edges.__delitem__(len(edges) - 1)
 
         # have own drawing
-
         for point in self.ptsArr:
             x = [point[0] for i in range(len(point))]
             y = [point[1] for i in range(len(point))]
